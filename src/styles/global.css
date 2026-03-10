@@ -1,1 +1,30 @@
 @import "tailwindcss";
+
+@theme {
+    --color-footer: oklch(0.2221 0 0);
+    --color-dark: oklch(0.1957 0 0); /*à utliser pour le header et les cards*/
+    --color-bg: oklch(0.1591 0 0);
+    --color-light1: oklch(0.4568 0 0); /*pour les boutons*/
+    --color-light2: oklch(0.709 0 0) /*textes*/
+
+    --font-serif: 'Lora Variable', serif;
+    --font-family: 'Pinyon Script', cursive;
+}
+
+@layer base {
+  body {
+    @apply font-sans text-base leading-normal;
+  }
+  h1 {
+    @apply text-4xl font-serif leading-tight lg:text-6xl;
+  }
+  h2 {
+    @apply text-2xl font-serif leading-tight lg:text-4xl;
+  }
+  h3 {
+    @apply text-xl font-serif leading-tight my-4;
+  }
+  ::selection {
+    @apply bg-(--color-pink);
+  }
+}
