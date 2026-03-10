@@ -1,6 +1,55 @@
+---
+import iconInstagram from "../assets/icons/instagram.svg";
+import iconFacebook from "../assets/icons/facebook.svg";
+import iconYoutube from "../assets/icons/youtube.svg";
+import iconTwitter from "../assets/icons/twitter.svg";
+import Logo from "../assets/icons/logo.svg";
+
+const socialLinks = [
+    { url: "https://facebook.com", label: "facebook", Icon: iconFacebook },
+    { url: "https://instagram.com", label: "instagram", Icon: iconInstagram },
+    { url: "https://twitter.com", label: "twitter", Icon: iconTwitter },
+    { url: "https://youtube.com", label: "youtube", Icon: iconYoutube },
+];
+---
+
 <footer class="bg-footer">
+    <Logo />
     <div>
-        <h3 class="text-4xl text-amber-800 font-lora">Feur</h3>
-        <div></div>
+        <nav class="text-2xl">
+            <ul>
+                <li><a href="">Festival</a></li>
+                <li><a href="">Programmation</a></li>
+                <li><a href="">Artistes</a></li>
+                <li><a href="">Scènes</a></li>
+                <li><a href="">Infos pratiques</a></li>
+                <li><a href="">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="font-mono text-sm">
+            <div>
+                <p>Mention légale</p>
+                <p>
+                    Projet réalisé en 2025 dans le cadre d’un exercice
+                    pédagogique au departement MMI de Montbéliard
+                </p>
+
+                <p>Loddo Enzo</p>
+                <p>Groupe B1</p>
+                <p>enzo.loddo@edu.univ-fcomte.fr</p>
+            </div>
+            <p>Nous suivre</p>
+            <ul>
+                {
+                    socialLinks.map(({ url, label, Icon }) => (
+                        <li>
+                            <a href={url} aria-label={label}>
+                                <Icon />
+                            </a>
+                        </li>
+                    ))
+                }
+            </ul>
+        </div>
     </div>
 </footer>

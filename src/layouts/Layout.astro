@@ -4,6 +4,7 @@ import Footer from "../components/Footer.astro";
 
 import "@fontsource-variable/lora";
 import "@fontsource/pinyon-script";
+import "@fontsource-variable/roboto";
 ---
 
 <!doctype html>
@@ -16,7 +17,7 @@ import "@fontsource/pinyon-script";
 		<meta name="generator" content={Astro.generator} />
 		<title>Astro Basics</title>
 	</head>
-	<body>
+	<body class="bg-dark">
 		<slot />
 	</body>
 	<Footer />
