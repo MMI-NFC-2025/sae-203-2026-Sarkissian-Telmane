@@ -13,10 +13,10 @@ const socialLinks = [
 ];
 ---
 
-<footer class="bg-footer py-10 mt-20">
-    <div class="grille">  
+<footer class="bg-footer py-10 mt-20 px-6 lg:px-0">
+    <div class="grille">
         <div class="flex justify-between mb-10 lg:contents">
-            <nav class="lg:col-start-3 lg:row-start-1">
+            <nav class="lg:col-start-1 lg:row-start-1">
                 <ul class="text-xl flex flex-col gap-[0.94rem]">
                     <li><a href="">Festival</a></li>
                     <li><a href="">Programmation</a></li>
@@ -27,14 +27,12 @@ const socialLinks = [
                 </ul>
             </nav>
 
-            <Logo
-                class="shrink-0 lg:col-start-9"
-            />
+            <Logo class="shrink-0 lg:col-end-1" />
         </div>
 
-        <div class="lg:col-start-7 lg:row-start-1 lg:col-span-2">
+        <div class="lg:col-start-2 lg:row-start-1 lg:col-span-1">
             <p class="font-serif mb-2 text-xl lg:mb-5">Nous suivre</p>
-            <ul class="flex gap-5 lg:flex-col">
+            <ul class="flex gap-5">
                 {
                     socialLinks.map(({ url, label, Icon }) => (
                         <li>
@@ -46,23 +44,19 @@ const socialLinks = [
                 }
             </ul>
         </div>
-    </div>
-
-    <div class="grille">
         <div
-            class="font-mono text-sm pt-10 text-light1 lg:col-start-3 lg:col-span-5"
+            class="flex flex-col font-mono text-sm text-light1 mt-10 lg:col-start-3 lg:row-start-1 lg:col-span-2 lg:mt-0"
         >
+            <p class="font-bold mb-2.5 uppercase">Mentions légales</p>
+            <p>
+                Projet réalisé en 2025 dans le cadre d'un exercice pédagogique
+                au departement MMI de Montbéliard
+            </p>
+        </div>
+        <div class="font-mono text-sm text-light1 lg:col-start-1 mt-10">
             <p>Loddo Enzo</p>
             <p>Groupe B1</p>
             <p>enzo.loddo@edu.univ-fcomte.fr</p>
-
-            <div class="pt-10 lg:pt-0">
-                <p class="font-bold mb-2.5 uppercase lg:mt-10">Mentions légales</p>
-                <p>
-                    Projet réalisé en 2025 dans le cadre d'un exercice
-                    pédagogique au departement MMI de Montbéliard
-                </p>
-            </div>
         </div>
     </div>
 </footer>

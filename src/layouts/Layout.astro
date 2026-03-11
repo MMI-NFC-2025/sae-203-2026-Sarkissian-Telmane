@@ -18,9 +18,11 @@ import "@fontsource-variable/roboto";
 		<meta name="generator" content={Astro.generator} />
 		<title>Astro Basics</title>
 	</head>
-	<Header></Header>
+	<Header />
 	<body class="bg-bg">
-		<slot />
+		<main class="px-6 lg:px-0">
+			<slot />
+		</main>
 	</body>
 	<Footer />
 </html>

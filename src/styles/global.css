@@ -1,37 +1,47 @@
 @import "tailwindcss";
 
 @theme {
-    --color-footer: oklch(0.2221 0 0);
-    --color-dark: oklch(0.1957 0 0); /*à utliser pour le header et les cards*/
-    --color-bg: oklch(0.1591 0 0);
-    --color-light1: oklch(0.4568 0 0); /*pour les boutons*/
-    --color-light2: oklch(0.709 0 0) /*textes*/
+  --color-footer: oklch(0.2221 0 0);
+  --color-dark: oklch(0.1957 0 0);
+  /*à utliser pour le header et les cards*/
+  --color-bg: oklch(0.1591 0 0);
+  --color-light1: oklch(0.4568 0 0);
+  /*pour les boutons*/
+  --color-light2: oklch(0.709 0 0)
+    /*textes*/
 
     --font-serif: 'Lora Variable', serif;
-    --font-cursive: 'Pinyon Script', cursive;
-    --font-sans: 'Roboto Variable', sans-serif; 
-    /*je me suis permis de rajouter une font sans serif pour les paragraphe 
+  --font-cursive: 'Pinyon Script', cursive;
+  --font-sans: 'Roboto Variable', sans-serif;
+  /*je me suis permis de rajouter une font sans serif pour les paragraphe 
     car l'entièreté des textes du site sont avec une police serif*/
 
-    --my-grid: repeat(12, minmax(0, 64px));
+  --my-grid: repeat(4, 1fr);
+
+
 }
 
 @layer base {
   body {
     @apply font-sans font-serif text-white text-base leading-normal;
   }
+
   h1 {
     @apply text-4xl leading-tight lg:text-6xl;
   }
+
   h2 {
     @apply text-2xl leading-tight lg:text-4xl;
   }
+
   h3 {
     @apply text-xl leading-tight my-4;
   }
+
   p {
     @apply font-sans
   }
+
   ::selection {
     @apply bg-(--color-pink);
   }
@@ -39,6 +49,7 @@
 
 @layer components {
   .grille {
-    @apply px-6 lg:grid lg:grid-cols-(--my-grid) lg:justify-center lg:gap-12;
+    /*/@apply px-6 lg:grid lg:grid-cols-(--my-grid) lg:justify-center lg:gap-12;*/
+    @apply lg:px-48 lg:grid lg:grid-cols-(--my-grid) gap-2.5
   }
 }

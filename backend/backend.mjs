@@ -74,7 +74,23 @@ export async function updateScene(id, sceneData) {
         const record = await pb.collection('scenes').update(id, sceneData);
         console.log('Scène modifiée :', record);
         return record;
-    } catch (error) {(error);
+    } catch (error) {
+        (error);
         throw error;
     }
 }
+
+export async function getEvents() {
+    const today = new Date().toISOString();
+    let events = await pb.collection("artistes").getFullList();
+    return events;
+}
+
+const eventDate = new Date(artistes.date_representation);
+const formattedDate = eventDate.toLocaleDateString("fr-FR", {
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+});
+artistes.formattedDate = formattedDate;
