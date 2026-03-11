@@ -1,0 +1,64 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import festival1 from "../assets/images/festival1.jpg";
+import festival2 from "../assets/images/festival2.jpg";
+import festival3 from "../assets/images/festival3.jpg";
+---
+
+<Layout>
+    <h1 class="text-center font-cursive mt-10 lg:mt-20 text-6xl lg:text-9xl">
+        Le festival
+    </h1>
+    <div class="grille">
+        <Image src={festival1} alt="Description" class="mt-10 lg:col-span-4" />
+        <div class="lg:col-span-4">
+            <h2 class="text-2xl mt-10 mb-3 lg:text-5xl">
+                Le Chorus Symphonia : L’histoire
+            </h2>
+            <p class="text-xl lg:text-2xl">
+                Du <strong>28 au 31 août 2026</strong> le Chorus Symphonia ouvre la
+                fin de l’été avec un rendez-vous dédié à la musique classique sous
+                toutes ses formes.
+            </p>
+            <div class="h-2 lg:h-3"></div>
+            <p class="text-xl lg:text-2xl">
+                Dans le cadre majestueux de la Citadelle de Besançon, le
+                festival réunit grands interprètes, jeunes talents et créations
+                originales, offrant quatre jours d'émotion et de découverte.
+            </p>
+        </div>
+        <Image src={festival2} alt="Description" class="mt-10 lg:col-span-4" />
+        <div class="lg:col-span-4">
+            <h2 class="text-2xl mt-10 mb-2 lg:text-5xl">Sa promesse</h2>
+            <p class="text-xl lg:text-2xl">
+                Le Chorus Symphonia transforme la Citadelle de Besançon en un
+                lieu d'émotion et de partage autour de la musique classique.
+            </p>
+            <div class="h-2 lg:h-3"></div>
+            <p class="text-xl lg:text-2xl">
+                Pendant quatre jours, le festival réunit aussi bien les
+                mélomanes passionnés que les curieux désireux de découverte.
+            </p>
+        </div>
+        <Image src={festival3} alt="Description" class="mt-10 lg:col-span-4" />
+        <div class="lg:col-span-4">
+            <h2 class="text-2xl mt-10 mb-2 lg:text-5xl"></h2>
+            <p class="text-xl lg:text-2xl">
+                Pensé comme un pont entre générations, Chorus
+                Symphonia s’adresse aux amateurs éclairés autant qu’aux jeunes
+                publics souhaitant explorer l’univers du classique autrement.
+            </p>
+            <div class="h-2 lg:h-3"></div>
+            <p class="text-xl lg:text-2xl">
+                Concerts symphoniques, récitals intimes et moments de rencontre
+                créent un dialogue vivant entre tradition et modernité, rendant
+                la musique accessible à tous.
+            </p>
+            <h2 class="text-2xl mt-10 mb-2 lg:text-5xl text-center">
+                Alors qu’attendez vous, c’est à votre tour de faire résonner la
+                franche-comté !
+            </h2>
+        </div>
+    </div>
+</Layout>
