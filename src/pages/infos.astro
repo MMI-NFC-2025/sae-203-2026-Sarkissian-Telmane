@@ -1,0 +1,34 @@
+---
+import Layout from "../layouts/Layout.astro";
+import CardsInfos from "../components/CardsInfos.astro";
+---
+
+<Layout>
+    <h1 class="text-center font-cursive mt-10 lg:mt-20 text-6xl lg:text-9xl">
+        Infos Pratiques
+    </h1>
+    <div class="grille lg:col-start-1 flex flex-col">
+        <h2 class="mt-10 mb-10">Tarifs et Billets</h2>
+        
+            <CardsInfos
+                titre="Pass 1 jour"
+                desc="Valable 1 jour : vendredi ou samedi"
+                prix="35€"
+            />
+            <CardsInfos
+                titre="Pass 2 jours"
+                desc="Valable 2 jours : vendredi et samedi"
+                prix="45€"
+            />
+            <CardsInfos
+                titre="Pass prémium 1 jour"
+                desc="Valable 1 jour : vendredi ou samedi"
+                prix="55€"
+            />
+            <CardsInfos
+                titre="Pass prémium 2 jours"
+                desc="Valable 2 jours : vendredi et samedi"
+                prix="70€"
+            />
+    </div>
+</Layout>

@@ -1,0 +1,22 @@
+---
+const { titre, desc, prix } = Astro.props;
+---
+
+<section class="mb-10 lg:mb-20">
+    <div class="bg-white px-6 pb-1 rounded-lg">
+        <div class="flex flex-col mb-5 gap-5">
+            <div>
+                <h3 class="text-black text-2xl mt-1 lg:text-3xl lg:mt-5">{titre}</h3>
+                <p class="text-light1 lg:text-xl">{desc}</p>
+            </div>
+            <div class="flex items-center justify-between gap-4">
+                <span class="text-black text-3xl">{prix}</span>
+                <a
+                    href="/404"
+                    class="text-white bg-dark px-5 py-2.5 rounded-sm font-sans"
+                    >Acheter</a
+                >
+            </div>
+        </div>
+    </div>
+</section>
