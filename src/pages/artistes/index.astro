@@ -2,11 +2,8 @@
 import Layout from "../../layouts/Layout.astro";
 import CardsArtistes from "../../components/CardsArtistes.astro";
 import PocketBase from "pocketbase";
-const pb = new PocketBase("http://127.0.0.1:8090");
-const artistes = await pb.collection("artistes").getFullList({
-    sort: "date_representation",
-    expand: "scenes",
-});
+const pb = new PocketBase("https://chorussymphonia.telmane.fr");
+const artistes = await pb.collection("artistes").getFullList();
 ---
 
 <Layout>

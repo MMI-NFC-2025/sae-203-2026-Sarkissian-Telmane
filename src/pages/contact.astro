@@ -1,5 +1,12 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { addMessage } from "../../backend/backend.mjs";
+let message = "";
+if (Astro.request.method === "POST") {
+    const formData = await Astro.request.formData();
+    const response = await addMessage(formData);
+    message = response.message;
+}
 ---
 
 <Layout>
@@ -32,12 +39,17 @@ import Layout from "../layouts/Layout.astro";
                     class="bg-white text-light1 font-sans rounded-sm pl-3 lg:text-2xl"
                 />
                 <p class="text-xl mt-5 lg:text-2xl lg:mb-2">Votre message</p>
-                <textarea
+                <input
                     class="bg-white text-light1 font-sans rounded-sm pl-3 lg:text-2xl"
-                    id="message"
-                    placeholder="..."></textarea>
+                    type="text"
+                    name="message"
+                    placeholder="..."
+                />
                 <div class="my-10 flex justify-center">
-                    <button class="bg-light1 text-xl px-5 py-2.5 rounded-lg lg:text-2xl" type="submit">Envoyer</button>
+                    <button
+                        class="bg-light1 text-xl px-5 py-2.5 rounded-lg lg:text-2xl"
+                        type="submit">Envoyer</button
+                    >
                 </div>
             </form>
         </section>

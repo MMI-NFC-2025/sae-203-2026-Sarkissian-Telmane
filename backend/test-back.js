@@ -1,4 +1,4 @@
-import { artistesSorted, scenesName, artistesName, artisteID, sceneID, allartistebysceneId, allartistebysceneName, addArtiste, addScene, updateArtiste, updateScene } from './backend.mjs';
+import { artistesSorted, scenesName, artistesName, artisteID, sceneID, allartistebysceneId, allartistebysceneName, addArtiste, addScene, updateArtiste, updateScene, addMessage } from './backend.mjs';
 
 
 
@@ -108,3 +108,14 @@ import { artistesSorted, scenesName, artistesName, artisteID, sceneID, allartist
 // } catch (e) {
 //     console.error(e);
 // }
+
+try {
+    const messageData = {
+        "nom": "Jean-michel",
+        "email": "jean@gmail.com",
+        "message" : "Le site m'a l'air vachement incomplé ?",
+};
+    await addMessage(messageData);
+} catch (e) {
+    console.error(e);
+}

@@ -1,5 +1,5 @@
 import PocketBase from 'pocketbase';
-const pb = new PocketBase('http://127.0.0.1:8090');
+const pb = new PocketBase('https://chorussymphonia.telmane.fr');
 
 export async function artistesSorted() {
     const records = await pb.collection('artistes').getFullList({ sort: 'date_representation' });
@@ -86,14 +86,23 @@ export async function getEvents() {
     return events;
 }
 
-const eventDate = new Date(artistes.date_representation);
-const formattedDate = eventDate.toLocaleDateString("fr-FR", {
-    weekday: "long",
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-});
-artistes.formattedDate = formattedDate;
+// const eventDate = new Date(artistes.date_representation);
+// const formattedDate = eventDate.toLocaleDateString("fr-FR", {
+//     weekday: "long",
+//     year: "numeric",
+//     month: "long",
+//     day: "numeric",
+// });
+// artistes.formattedDate = formattedDate;
 
-export async function filterByNom(nom) {
-    return artistes.filter(a => a.nom_artiste.toLowerCase().includes(nom.toLowerCase()))};
+
+export async function addMessage(messageData) {
+    try {
+        const record = await pb.collection('message').create(messageData);
+        console.log('message ajouté :', record);
+        return record;
+    } catch (error) {
+        console.error(error);
+        throw error;
+    }
+}
