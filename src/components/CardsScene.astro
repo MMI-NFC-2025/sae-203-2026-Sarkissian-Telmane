@@ -1,0 +1,17 @@
+---
+import { sceneID } from "../../backend/backend.mjs";
+import PbImage from "./PbImage.astro";
+
+interface Props {
+    scene: any;
+}
+const { scene } = Astro.props;
+---
+
+<section class="bg-dark rounded-xl mt-20">
+    <PbImage
+        record={scene}
+        filename={scene.photo_scene}
+        alt={scene.nom_scene}
+    />
+</section>

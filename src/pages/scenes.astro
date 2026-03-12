@@ -1,0 +1,71 @@
+---
+import Layout from "../layouts/Layout.astro";
+import PbImage from "../components/PbImage.astro";
+import CardsScene from "../components/CardsScene.astro";
+import {
+    getAllScenes,
+    sceneID,
+    allartistebysceneName,
+} from "../../backend/backend.mjs";
+
+export async function getStaticPaths() {
+    const scenes = await getAllScenes().catch(() => []);
+    return scenes.map((scene: any) => ({ params: { id: scene.id } }));
+}
+
+const { id } = Astro.params;
+const scene = await sceneID(id).catch(() => null);
+const artistes = scene ? await allartistebysceneName(id).catch(() => []) : [];
+---
+
+<Layout>
+    <h1 class="text-center font-cursive mt-10 lg:mt-20 text-6xl lg:text-9xl">
+        Nos scènes
+    </h1>
+     {scene ? (
+    <>
+      <section class="py-12 px-4 max-w-6xl mx-auto">
+        <div class="bg-white p-8 rounded shadow mb-8">
+
+          <PbImage 
+            record={scene} 
+            filename={scene.photo} 
+            alt={scene.nom}
+            class="w-full h-96 object-cover rounded mb-8"
+          />
+
+          <div class="mb-8">
+            <div class="flex gap-4 mb-4">
+              <span class="bg-orprofond text-noir px-4 py-2 rounded font-bold">{scene.capacite} places</span>
+            </div>
+            <h2 class="text-2xl font-bold mb-4">À propos</h2>
+            <p class="text-grisclair">{scene.description}</p>
+          </div>
+
+          <!-- Accès -->
+          {scene.acces && (
+            <div class="bg-doreclair p-6 rounded mb-8">
+              <h3 class="font-bold mb-2">Accès</h3>
+              <p>{scene.acces}</p>
+            </div>
+          )}
+        </div>
+
+        <!-- Artistes -->
+        <div class="mt-12">
+          <h2 class="text-2xl font-bold mb-6">Artistes sur cette scène</h2>
+          {artistes.length > 0 ? (
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {scene.map((scene: any) => <CardsScene scene={scene} />)}
+            </div>
+          ) : (
+            <p class="text-center text-grisclair">Aucun artiste programmé.</p>
+          )}
+        </div>
+      </section>
+    </>
+  ) : (
+    <>
+    </>
+  )}
+</Layout>

@@ -86,16 +86,6 @@ export async function getEvents() {
     return events;
 }
 
-// const eventDate = new Date(artistes.date_representation);
-// const formattedDate = eventDate.toLocaleDateString("fr-FR", {
-//     weekday: "long",
-//     year: "numeric",
-//     month: "long",
-//     day: "numeric",
-// });
-// artistes.formattedDate = formattedDate;
-
-
 export async function addMessage(messageData) {
     try {
         const record = await pb.collection('message').create(messageData);
@@ -105,4 +95,9 @@ export async function addMessage(messageData) {
         console.error(error);
         throw error;
     }
+}
+
+export async function getAllScenes() {
+    const records = await pb.collection('scenes').getFullList();
+    return records;
 }
