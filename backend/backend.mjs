@@ -1,5 +1,5 @@
 import PocketBase from 'pocketbase';
-const pb = new PocketBase('https://chorussymphonia.telmane.fr');
+const pb = new PocketBase('https://chorussymphonia.telmane.fr:443');
 
 export async function artistesSorted() {
     const records = await pb.collection('artistes').getFullList({ sort: 'date_representation' });
