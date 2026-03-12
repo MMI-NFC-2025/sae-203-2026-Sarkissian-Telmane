@@ -2,7 +2,6 @@
 import Layout from "../../layouts/Layout.astro";
 import CardsArtistes from "../../components/CardsArtistes.astro";
 import PocketBase from "pocketbase";
-import { filterByNom } from "../../../backend/backend.mjs";
 const pb = new PocketBase("http://127.0.0.1:8090");
 const artistes = await pb.collection("artistes").getFullList({
     sort: "date_representation",
@@ -24,7 +23,7 @@ const artistes = await pb.collection("artistes").getFullList({
             class="bg-white text-light1 font-sans rounded-sm pl-3 lg:text-2xl"
             type="text"
             name="nom"
-            placeholder="Mozart"
+            placeholder="ex: Mozart"
         />
         <button
             class="bg-light1 px-2 font-sans rounded-sm lg:text-2xl"

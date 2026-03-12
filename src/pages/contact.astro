@@ -1,0 +1,45 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout>
+    <h1 class="text-center font-cursive mt-10 lg:mt-20 text-6xl lg:text-9xl">
+        Formulaire de contact
+    </h1>
+    <div class="grille">
+        <section class="bg-dark rounded-lg lg:col-start-2 lg:col-span-2">
+            <form
+                class="flex flex-col mx-10"
+                action="/contact"
+                method="POST"
+                enctype="multipart/form-data"
+            >
+                <p class="text-xl mt-5 lg:text-2xl lg:mt-15 lg:mb-2">
+                    Votre nom :
+                </p>
+                <input
+                    type="text"
+                    name="nom"
+                    placeholder="ex: Jean-Michel"
+                    required
+                    class="bg-white text-light1 font-sans rounded-sm pl-3 lg:text-2xl"
+                />
+                <p class="text-xl mt-5 lg:text-2xl lg:mb-2">Votre e-mail :</p>
+                <input
+                    type="text"
+                    name="email"
+                    placeholder="ex: Jean.michel@hotmail.fr"
+                    class="bg-white text-light1 font-sans rounded-sm pl-3 lg:text-2xl"
+                />
+                <p class="text-xl mt-5 lg:text-2xl lg:mb-2">Votre message</p>
+                <textarea
+                    class="bg-white text-light1 font-sans rounded-sm pl-3 lg:text-2xl"
+                    id="message"
+                    placeholder="..."></textarea>
+                <div class="my-10 flex justify-center">
+                    <button class="bg-light1 text-xl px-5 py-2.5 rounded-lg lg:text-2xl" type="submit">Envoyer</button>
+                </div>
+            </form>
+        </section>
+    </div>
+</Layout>
