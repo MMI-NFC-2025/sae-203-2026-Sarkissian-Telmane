@@ -1,0 +1,33 @@
+---
+const { artiste } = Astro.props;
+
+const imageUrl = `http://127.0.0.1:8090/api/files/artistes/${artiste.id}/${artiste.artiste_photo}?thumb=600x400`;
+---
+
+<article class="bg-dark rounded-xl mt-20">
+    <a href="">
+        <img
+            src={imageUrl}
+            alt={artiste.nom_artiste}
+            class="w-full h-60 object-cover"
+        />
+
+        <div class="p-4">
+            <p class="font-bold text-lg">
+                {artiste.nom_artiste}
+            </p>
+            <p>Joue le {artiste.date_representation}</p>
+
+            <p class="text-light1">
+                {artiste.genre}
+            </p>
+
+            <p class="text-sm text-light1">
+                Sur la scène : {
+                    artiste.expand?.scene?.nom_scene || "Scène inconnue"
+                } - {artiste.heure}
+            </p>
+        </div>
+            <p class="p-2 text-end text-white">Plus d'infos</p>
+    </a>
+</article>

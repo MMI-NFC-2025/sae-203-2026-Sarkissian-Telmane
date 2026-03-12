@@ -1,0 +1,37 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import CardsArtistes from "../../components/CardsArtistes.astro";
+import PocketBase from "pocketbase";
+import { filterByNom } from "../../../backend/backend.mjs";
+const pb = new PocketBase("http://127.0.0.1:8090");
+const artistes = await pb.collection("artistes").getFullList({
+    sort: "date_representation",
+    expand: "scenes",
+});
+---
+
+<Layout>
+    <h1 class="text-center font-cursive mt-10 lg:mt-20 text-6xl lg:text-9xl">
+        Nos Artistes
+    </h1>
+
+    <h2 class="text-xl mt-10 mb-3 lg:text-3xl text-center">
+        Vous cherchez un artiste en particulier ?
+    </h2>
+
+    <form action="/artistes" method="POST" class="flex justify-center gap-5">
+        <input
+            class="bg-white text-light1 font-sans rounded-sm pl-3 lg:text-2xl"
+            type="text"
+            name="nom"
+            placeholder="Mozart"
+        />
+        <button
+            class="bg-light1 px-2 font-sans rounded-sm lg:text-2xl"
+            type="submit">Rechercher</button
+        >
+    </form>
+    <div class="grille">
+        {artistes.map((artiste) => <CardsArtistes artiste={artiste} />)}
+    </div>
+</Layout>

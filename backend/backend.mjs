@@ -94,3 +94,6 @@ const formattedDate = eventDate.toLocaleDateString("fr-FR", {
     day: "numeric",
 });
 artistes.formattedDate = formattedDate;
+
+export async function filterByNom(nom) {
+    return artistes.filter(a => a.nom_artiste.toLowerCase().includes(nom.toLowerCase()))};
